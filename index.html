@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>나만의 동기부여 홈화면 만들기</title>
+
+    <script src="index.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-image: url(data:image/jpeg;base64,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
+);
+            background-position: center;
+
+            color: white;
+        }
+
+        .time{
+            font-size: 80px;
+            font-weight: bold;
+        }
+
+        .greeting {
+            font-size: 60px;
+        
+        }
+
+        .todo {
+            font-size: 50px;
+        }
+
+        .author {
+            font-size: 45px;
+            font-style: italic;
+        }
+
+        .main {
+            width: 100vw;
+            height: 80;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center
+        }
+            
+        .quote {
+            width: 100vw;
+            height: 20;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center
+        }
+    </style>
+
+    <script>
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <div id="time" class="time">12:00</div>
+        <div class="greeting">왔구나 오태식이</div>
+        <div class="todo">설정짜기</div>
+    </div>
+    <div class="quote">
+        <div id="author" class="author">- 명언의 저자 -</div>
+        <div id="content" class="content">" 명언의 내용 "</div>
+    </div>
+</body>
+
+</html>
